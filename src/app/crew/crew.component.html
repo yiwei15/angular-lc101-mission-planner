@@ -10,8 +10,7 @@
     <button (click) ="remove(member)" >remove</button>
     </span>
     <ng-template #elseBlock>
-      <input #updatedName (keyup.enter)="save(updatedName.value, member)" 
-       value="{{member.name}}"/>
+      <input #updatedName (keyup.enter)="save(updatedName.value, member)" value="{{member.name}}"/>
       <button (click)="save(updatedName.value, member)">save</button>
    </ng-template>
   </li>  

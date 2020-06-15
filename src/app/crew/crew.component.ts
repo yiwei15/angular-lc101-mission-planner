@@ -18,8 +18,16 @@ export class CrewComponent implements OnInit {
   ngOnInit() {
   }
 
+  inCrew: boolean = false;
   add(memberName:string, isFirst:boolean)  {
+    for (let i=0; i<this.crew.length; i++)  {
+      if (this.crew[i]['name'] === memberName)  {
+        this.inCrew = true;
+      }
+    }
+    if  (!this.inCrew)  {
     this.crew.push({name:memberName, firstMission:isFirst});
+    }
   }
 
   remove(member:object) {
@@ -32,8 +40,8 @@ export class CrewComponent implements OnInit {
     this.memberBeingEdited = member;
   }
 
-  save(name: string, member: object) {
-    member['name'] = name;
+  save(name: string, memberObject: object) {
+    memberObject['name'] = name;
     this.memberBeingEdited = null;
   }
 
